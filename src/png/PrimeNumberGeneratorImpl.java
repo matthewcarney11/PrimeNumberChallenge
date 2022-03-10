@@ -1,13 +1,20 @@
 package png;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class PrimeNumberGeneratorImpl implements PrimeNumberGenerator {
 
 	@Override
 	public List<Integer> generate(int startingValue, int endingValue) {
-		throw new UnsupportedOperationException("Method not implemented yet.");
+		// flip start and end value if needed to accommodate inverse ranges
+		int rangeStart = startingValue <= endingValue ? startingValue : endingValue;
+		int rangeEnd = startingValue <= endingValue ? endingValue : startingValue;
+		
+		return IntStream.range(rangeStart, rangeEnd).filter(this::isPrime).boxed().collect(Collectors.toList());
 	}
 
 	@Override
