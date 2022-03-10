@@ -24,17 +24,13 @@ public class PrimeNumberGeneratorImpl implements PrimeNumberGenerator {
 			return false;
 		}
 		
-		if (value == 2) {
-			return true;
-		}
-		
-		// all multiples of 2 (even numbers) are non-prime
+		// all multiples of 2 (even numbers) are non-prime, except 2 itself
 		if (value % 2 == 0) {
-			return false;
+			return value == 2;
 		}
 		
 		// iterate over possible divisors
-		for (int i=3; i < value; i++) {
+		for (int i=3; i <= Math.sqrt(value); i+=2) {
 			// if the value has another divisor, it is non-prime
 			if (value % i == 0) {
 				return false;

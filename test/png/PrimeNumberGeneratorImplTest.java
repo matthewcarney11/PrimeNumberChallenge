@@ -10,7 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 class PrimeNumberGeneratorImplTest {
 	
 	@ParameterizedTest
-	@ValueSource(ints = {0, 1, 4, 6, 8, 9, 10, 12, 14, 15, 16})
+	@ValueSource(ints = {-9, -8, -6, -4, -1, 0, 1, 4, 6, 8, 9, 10, 12, 14, 15, 16})
 	void isPrimeTestInvalidIntegers(int value) {
 		final PrimeNumberGenerator png = new PrimeNumberGeneratorImpl();
 		assertThat(png.isPrime(value), is(false));
@@ -18,7 +18,7 @@ class PrimeNumberGeneratorImplTest {
 	
 	@ParameterizedTest
 	@ValueSource(ints = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31,
-			37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101})
+			37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, Integer.MAX_VALUE})
 	void isPrimeTestValidIntegers(int value) {
 		final PrimeNumberGenerator png = new PrimeNumberGeneratorImpl();
 		assertThat(png.isPrime(value), is(true));
