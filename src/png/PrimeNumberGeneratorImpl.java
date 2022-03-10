@@ -1,6 +1,8 @@
 package png;
 
+import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -47,6 +49,39 @@ public class PrimeNumberGeneratorImpl implements PrimeNumberGenerator {
 		}
 		
 		return true;
+	}
+	
+	/**
+	 * Main method to allow running the prime number generator from the command line.
+	 * 
+	 * @param args the command line arguments, which are ignored.
+	 */
+	public static void main(String args[]) {
+		System.out.println("This program will print an ordered list of all prime numbers within the given range of integers.");
+	    
+	    try (Scanner in = new Scanner(System.in)) {
+	    	
+			System.out.println("Please enter the range start:");
+			int rangeStart = 0;
+			try {
+				rangeStart = in.nextInt();
+			} catch (InputMismatchException e) {
+				System.out.println("The input was not an integer. The program will exit now.");
+				System.exit(0);
+			}
+			
+			System.out.println("Please enter the range end:");
+			int rangeEnd = 0;
+			try {
+				rangeEnd = in.nextInt();
+			} catch (InputMismatchException e) {
+				System.out.println("The input was not an integer. The program will exit now.");
+				System.exit(0);
+			}
+			
+			final PrimeNumberGenerator png = new PrimeNumberGeneratorImpl();
+			System.out.printf("Prime numbers within range: %s", png.generate(rangeStart, rangeEnd));
+		}	      
 	}
 
 }
