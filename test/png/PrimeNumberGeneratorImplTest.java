@@ -27,14 +27,14 @@ class PrimeNumberGeneratorImplTest {
 	@Test
 	void generateTestLowRange () {
 		final PrimeNumberGenerator png = new PrimeNumberGeneratorImpl();
-		assertThat(png.generate(0, 102), contains(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31,
+		assertThat(png.generate(0, 101), contains(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31,
 				37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101));
 	}
 	
 	@Test
 	void generateTestLowRangeInverse () {
 		final PrimeNumberGenerator png = new PrimeNumberGeneratorImpl();
-		assertThat(png.generate(102, 0), contains(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31,
+		assertThat(png.generate(101, 0), contains(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31,
 				37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101));
 	}
 	

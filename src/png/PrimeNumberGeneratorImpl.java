@@ -22,7 +22,7 @@ public class PrimeNumberGeneratorImpl implements PrimeNumberGenerator {
 		int rangeStart = startingValue <= endingValue ? startingValue : endingValue;
 		int rangeEnd = startingValue <= endingValue ? endingValue : startingValue;
 		
-		return IntStream.range(rangeStart, rangeEnd).filter(this::isPrime).boxed().collect(Collectors.toList());
+		return IntStream.rangeClosed(rangeStart, rangeEnd).filter(this::isPrime).boxed().collect(Collectors.toList());
 	}
 
 	/**
